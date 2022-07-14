@@ -22,5 +22,22 @@ return this.http.get(`api/dataentities/CL/search?_fields=all${filter ? `&${filte
 
 }
 
+public postWallet = () => {
+
+    const dados = {pontos:"1000"}
+    return this.http.post('api/dataentities/DS/documents',dados)
+}
+
+public getWallet = (filter:string, perPage: number,pageNumber:number) => {
+
+
+    const startIndex = (pageNumber - 1) * perPage
+    const endIndex = startIndex + perPage
+    
+    return this.http.get(`api/dataentities/DS/search?_fields=all${filter ? `&${filter}`:''}`,{
+        metric:'crm-get-users',headers:{'REST-Range':`resources=${startIndex}-${endIndex}`}
+    })
+    
+    }  
 
 }

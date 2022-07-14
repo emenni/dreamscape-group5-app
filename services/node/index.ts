@@ -10,6 +10,8 @@ import { Clients } from './clients'
 import { analytics } from './handlers/analytics'
 import { updateLiveUsers } from './event/liveUsersUpdate'
 import { externalMD } from './handlers/externalMD'
+import { postWallet } from './handlers/postWallet'
+import { getWallet } from './handlers/getWallet'
 
 
 // Create a LRU memory cache for the Status client.
@@ -52,6 +54,12 @@ export default new Service<Clients, State, ParamsContext>({
     }),
     externalMD: method({
       GET: [externalMD],
+    }),
+    postWallet: method({
+      POST: [postWallet],
+    }),
+    getWallet: method({
+      POST: [getWallet],
     }),
   },
   events: {

@@ -13,6 +13,14 @@
     "externalMD": {
       "path": "/_v/app/mdUsers",
       "public": true
+    },
+    "postWallet": {
+      "path": "/_v/app/postWallet",
+      "public": true
+    },
+    "getWallet": {
+      "path": "/_v/app/getWallet",
+      "public": true
     }
   },
   "events": {
