@@ -9,12 +9,18 @@
     "analytics": {
       "path": "/_v/app/analytics/realTime",
       "public": true
+    },
+    "externalMD": {
+      "path": "/_v/app/mdUsers",
+      "public": true
     }
   },
   "events": {
-        "liveUsersUpdate": {
-          "sender": "vtex.events-example",
-          "keys": ["send-event"]
-        }
-      }
+    "liveUsersUpdate": {
+      "sender": "vtex.events-example",
+      "keys": [
+        "send-event"
+      ]
+    }
+  }
 }

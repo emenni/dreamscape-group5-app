@@ -9,6 +9,7 @@ import {
 import { Clients } from './clients'
 import { analytics } from './handlers/analytics'
 import { updateLiveUsers } from './event/liveUsersUpdate'
+import { externalMD } from './handlers/externalMD'
 
 
 // Create a LRU memory cache for the Status client.
@@ -48,6 +49,9 @@ export default new Service<Clients, State, ParamsContext>({
   routes: {
     analytics: method({
       GET: [analytics],
+    }),
+    externalMD: method({
+      GET: [externalMD],
     }),
   },
   events: {

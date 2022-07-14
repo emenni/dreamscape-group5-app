@@ -11,7 +11,18 @@
     "prereleasy": "bash lint.sh"
   },
   "credentialType": "absolute",
-  "policies": [],
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "POWER_USER_DS"
+    }
+  ],
   "dependencies": {
     "vtex.events-example": "0.x"
   },
