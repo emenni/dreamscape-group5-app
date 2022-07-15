@@ -4,7 +4,7 @@
   "timeout": 10,
   "minReplicas": 2,
   "maxReplicas": 10,
-  "workers": 4,
+  "workers": 5,
   "routes": {
     "analytics": {
       "path": "/_v/app/analytics/realTime",
@@ -20,6 +20,10 @@
     },
     "getWallet": {
       "path": "/_v/app/getWallet",
+      "public": true
+    },
+    "deleteWallet": {
+      "path": "/_v/app/deleteWallet",
       "public": true
     }
   },

@@ -24,8 +24,8 @@ return this.http.get(`api/dataentities/CL/search?_fields=all${filter ? `&${filte
 
 public postWallet = () => {
 
-    const dados = {pontos:"1000"}
-    return this.http.post('api/dataentities/DS/documents',dados)
+    const dados = {pts:'500'}
+    return this.http.post('api/dataentities/TT/documents',dados)
 }
 
 public getWallet = (filter:string, perPage: number,pageNumber:number) => {
@@ -34,10 +34,16 @@ public getWallet = (filter:string, perPage: number,pageNumber:number) => {
     const startIndex = (pageNumber - 1) * perPage
     const endIndex = startIndex + perPage
     
-    return this.http.get(`api/dataentities/DS/search?_fields=all${filter ? `&${filter}`:''}`,{
-        metric:'crm-get-users',headers:{'REST-Range':`resources=${startIndex}-${endIndex}`}
+    return this.http.get(`api/dataentities/TT/search?_fields=_all${filter ? `&${filter}`:''}`,{
+        headers:{'REST-Range':`resources=${startIndex}-${endIndex}`}
     })
     
     }  
+
+ public deleteWallet = () => {
+
+    return this.http.delete('api/dataentities/DS/documents')
+        
+    }   
 
 }

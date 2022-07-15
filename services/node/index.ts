@@ -12,7 +12,7 @@ import { updateLiveUsers } from './event/liveUsersUpdate'
 import { externalMD } from './handlers/externalMD'
 import { postWallet } from './handlers/postWallet'
 import { getWallet } from './handlers/getWallet'
-
+import { deleteWallet } from './handlers/deleteWallet'
 
 // Create a LRU memory cache for the Status client.
 // The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
@@ -59,7 +59,10 @@ export default new Service<Clients, State, ParamsContext>({
       POST: [postWallet],
     }),
     getWallet: method({
-      POST: [getWallet],
+      GET: [getWallet],
+    }),
+    deleteWallet: method({
+      DELETE: [deleteWallet],
     }),
   },
   events: {
