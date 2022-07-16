@@ -33,6 +33,11 @@
       "keys": [
         "send-event"
       ]
+    },
+    "orderStatusBroadcasted": {
+      "sender": "vtex.orders-broadcast",
+      "topics": ["order-created"]
     }
   }
 }
+
