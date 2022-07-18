@@ -1,6 +1,6 @@
 import {ExternalClient, InstanceOptions, IOContext} from '@vtex/api'
 
-export default class ExternalMasterdata extends ExternalClient{
+export default class WalletManager extends ExternalClient{
     constructor( context: IOContext, options?: InstanceOptions){
         super(`http://${context.account}.vtexcommercestable.com.br`, context,{...options,headers:{
             ...options?.headers,
@@ -9,27 +9,17 @@ export default class ExternalMasterdata extends ExternalClient{
         }})        
     }
 
+public addCredit = (orderId:string) => {
 
-public getUser = (filter:string, perPage: number,pageNumber:number) => {
-
-
-const startIndex = (pageNumber - 1) * perPage
-const endIndex = startIndex + perPage
-
-return this.http.get(`api/dataentities/CL/search?_fields=all${filter ? `&${filter}`:''}`,{
-    metric:'crm-get-users',headers:{'REST-Range':`resources=${startIndex}-${endIndex}`}
-})
-
-}
-
-public postWallet = () => {
-
-    const dados = {pts:'500'}
-    return this.http.post('api/dataentities/TT/documents',dados)
+ (async () => {
+    let ret = await this.http.get(`/api/oms/pvt/orders/${orderId}`)
+    
+    console.log('Order Payments  ----->',ret.paymentData.transactions[0].payments)
+    
+ })()
 }
 
 public getWallet = (filter:string, perPage: number,pageNumber:number) => {
-
 
     const startIndex = (pageNumber - 1) * perPage
     const endIndex = startIndex + perPage
@@ -39,11 +29,5 @@ public getWallet = (filter:string, perPage: number,pageNumber:number) => {
     })
     
     }  
-
- public deleteWallet = () => {
-
-    return this.http.delete('api/dataentities/DS/documents')
-        
-    }   
 
 }

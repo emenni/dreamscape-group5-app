@@ -8,8 +8,8 @@ import {
   method,
 } from '@vtex/api'
 import { Clients } from './clients'
-import { createWalletRecords } from './event/orderCreatedMidleware'
-import { postWallet, getWallet, deleteWallet } from './handlers/wallet'
+import { createWalletRecords } from './event/orderCreated'
+import { getWallet } from './handlers/wallet'
 
 // Create a LRU memory cache for the Status client.
 // The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
@@ -57,14 +57,8 @@ export default new Service<Clients,  State, ParamsContext>({
     },
 },
   routes: {
-    postWallet: method({
-      POST: [postWallet],
-    }),
-    getWallet: method({
+      getWallet: method({
       GET: [getWallet],
-    }),
-    deleteWallet: method({
-      DELETE: [deleteWallet],
     }),
   },
   events: {

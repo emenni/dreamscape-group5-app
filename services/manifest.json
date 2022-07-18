@@ -13,6 +13,9 @@
   "credentialType": "absolute",
   "policies": [
     {
+      "name": "OMSViewer"
+    },
+    {
       "name": "outbound-access",
       "attrs": {
         "host": "portal.vtexcommercestable.com.br",

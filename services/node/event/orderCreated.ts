@@ -1,5 +1,3 @@
-
-
 export async function createWalletRecords(ctx:StatusChangeContext, next: () => Promise<any>
   ) {
     
@@ -7,7 +5,7 @@ export async function createWalletRecords(ctx:StatusChangeContext, next: () => P
         clients: { orderClient },
       } = ctx
 
-     await orderClient.getOrder(ctx.body.orderId)
+     await orderClient.addCredit(ctx.body.orderId)
 
 
     await next()

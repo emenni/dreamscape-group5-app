@@ -6,34 +6,12 @@
   "maxReplicas": 10,
   "workers": 5,
   "routes": {
-    "analytics": {
-      "path": "/_v/app/analytics/realTime",
-      "public": true
-    },
-    "externalMD": {
-      "path": "/_v/app/mdUsers",
-      "public": true
-    },
-    "postWallet": {
-      "path": "/_v/app/postWallet",
-      "public": true
-    },
-    "getWallet": {
+     "getWallet": {
       "path": "/_v/app/getWallet",
       "public": true
-    },
-    "deleteWallet": {
-      "path": "/_v/app/deleteWallet",
-      "public": true
-    }
+    }    
   },
   "events": {
-    "liveUsersUpdate": {
-      "sender": "vtex.events-example",
-      "keys": [
-        "send-event"
-      ]
-    },
     "orderStatusBroadcasted": {
       "sender": "vtex.orders-broadcast",
       "topics": ["payment-approved"]
