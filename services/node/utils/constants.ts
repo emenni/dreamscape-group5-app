@@ -1,1 +1,1 @@
-export const COURSE_ENTITY = 'course_backend_product_list'
+export const COURSE_ENTITY = 'backEnd_grupo5_dreamscape'

@@ -2,10 +2,10 @@ export async function createWalletRecords(ctx:StatusChangeContext, next: () => P
   ) {
     
     const {
-        clients: { orderClient },
+        clients: { walletManager },
       } = ctx
 
-     await orderClient.addCredit(ctx.body.orderId)
+     await walletManager.addCredit(ctx.body.orderId)
 
 
     await next()
