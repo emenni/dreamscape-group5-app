@@ -1,4 +1,4 @@
-import { Clients } from '../clients/index'
+import { Clients  } from '../clients/index'
 import { EventContext } from '@vtex/api'
 
 

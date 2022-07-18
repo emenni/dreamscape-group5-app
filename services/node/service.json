@@ -36,7 +36,7 @@
     },
     "orderStatusBroadcasted": {
       "sender": "vtex.orders-broadcast",
-      "topics": ["order-created"]
+      "topics": ["payment-approved"]
     }
   }
 }

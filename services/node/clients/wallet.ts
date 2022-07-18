@@ -1,21 +1,21 @@
 import {ExternalClient, InstanceOptions, IOContext} from '@vtex/api'
 
 export default class Wallet extends ExternalClient{
-    constructor( context: IOContext, options?: InstanceOptions){
+
+    constructor( context: IOContext,  options?: InstanceOptions){
         super(`http://${context.account}.vtexcommercestable.com.br`, context,{...options,headers:{
             ...options?.headers,
             ...(context.authToken ? {VtexIdclientAutCookie: context.authToken} : null),
             'Content-Type':'application/json',
-        }})        
+        }})       
     }
-
 
 public credit = () => {
 
 // const order = {clientId:this.context.eventInfo?.key['clientId'],points:this.context.eventInfo?.key['value']}
 //return this.http.post('api/dataentities/TT/documents',order)
 
-return console.log(this.context.eventInfo)
+return console.log(this)
 
 }
 

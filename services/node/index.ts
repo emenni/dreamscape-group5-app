@@ -2,12 +2,13 @@ import {
   LRUCache,
   Service,
   ServiceContext,
+  EventContext,
   ParamsContext,
   RecorderState,
   method,
 } from '@vtex/api'
 import { Clients } from './clients'
-import { createWalletRecords } from './event/orderCreated'
+import { createWalletRecords } from './event/orderCreatedMidleware'
 import { postWallet, getWallet, deleteWallet } from './handlers/wallet'
 
 // Create a LRU memory cache for the Status client.
@@ -16,7 +17,18 @@ const memoryCache = new LRUCache<string, any>({ max: 5000 })
 metrics.trackCache('status', memoryCache)
 
 declare global {
-  type Context = ServiceContext<Clients, State>
+  type Context = ServiceContext<Clients,State>
+  
+  interface StatusChangeContext extends EventContext<Clients> {
+    body: {
+      domain: string
+      orderId: string
+      currentState: string
+      lastState: string
+      currentChangeDate: string
+      lastChangeDate: string
+    }
+  }
 
   interface State extends RecorderState {
     code: number
@@ -26,7 +38,7 @@ declare global {
  const THREE_SECONDS_MS = 3 * 1000
  const CONCURRENCY = 10
 
-export default new Service<Clients, State, ParamsContext>({
+export default new Service<Clients,  State, ParamsContext>({
   clients: {
     implementation: Clients,
     options: {
@@ -56,6 +68,6 @@ export default new Service<Clients, State, ParamsContext>({
     }),
   },
   events: {
-        orderStatusBroadcasted: createWalletRecords
+    orderStatusBroadcasted: createWalletRecords
       },
 })
