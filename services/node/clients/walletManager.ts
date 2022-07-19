@@ -13,7 +13,7 @@ export default class WalletManager extends ExternalClient {
 
     public addCredit = (orderId: string) => {
 
-        async () => {
+        (async () => {
 
             let dataEntityName = 'WD'
 
@@ -41,7 +41,7 @@ export default class WalletManager extends ExternalClient {
              }          
 
 
-        }
+        })()
     }
 
     public getWallet = (userId:string) => {
