@@ -48,8 +48,8 @@ export default class WalletManager extends ExternalClient {
 
         let dataEntityName = 'WD'
 
-        return this.http.get(`api/dataentities/${dataEntityName}/search?_fields=_all${`&_where=userId=${userId}`}`)
-
+     
+        return this.http.get(`api/dataentities/${dataEntityName}/search`,{params:{ _fields: "_all" , _where: `userId=${userId}` }})
 
     }
 
