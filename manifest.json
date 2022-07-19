@@ -1,0 +1,41 @@
+{
+  "name": "backend-course",
+  "vendor": "vtex",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "title": "Dreamscape Group 5 App",
+  "description": "DreamScape Group 5 Solution App for Gama/Vtex Contest on Hiring Coders 3",
+  "builders": {
+    "react": "3.x",
+    "admin": "0.x",
+    "node": "6.x",
+    "graphql": "1.x",
+    "messages": "1.x"
+  },
+  "scripts": {
+    "prereleasy": "bash lint.sh"
+  },
+  "credentialType": "absolute",
+  "policies": [
+    {
+      "name": "OMSViewer"
+    },
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "portal.vtexcommercestable.com.br",
+        "path": "/*"
+      }
+    },
+    {
+      "name": "POWER_USER_DS"
+    }
+  ],
+  "dependencies": {
+    "vtex.styleguide": "9.x"
+  },
+  "registries": [
+    "smartcheckout"
+  ],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}

@@ -1,0 +1,10 @@
+{
+    "admin.app.DreamscapeGroup5Admin": {
+      "component": "DreamscapeGroup5Admin",
+      "path": "/admin/app/iotraining"
+    },
+    "admin.app.DreamscapeGroup5AdminOther": {
+      "component": "DreamscapeGroup5AdminOther",
+      "path": "/admin/app/otheriotraining"
+    }
+  }

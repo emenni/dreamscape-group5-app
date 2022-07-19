@@ -1,0 +1,15 @@
+{
+    "section": "orders",
+    "titleId": "dreamscape-group5-admin.navigation.label",
+    "searchKeyWordsHelpers": "dreamscape-group5-admin.navigation.search.kws",
+    "subSectionItems": [
+      {
+        "labelId": "dreamscape-group5-admin.navigation.insight",
+        "path": "/admin/iotraining"
+      },
+      {
+        "labelId": "dreamscape-group5-admin.navigation.management",
+        "path": "/admin/otheriotraining"
+      }
+    ]
+  }
