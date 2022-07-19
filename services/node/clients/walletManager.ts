@@ -1,33 +1,58 @@
-import {ExternalClient, InstanceOptions, IOContext} from '@vtex/api'
+import { ExternalClient, InstanceOptions, IOContext } from '@vtex/api'
 
-export default class WalletManager extends ExternalClient{
-    constructor( context: IOContext, options?: InstanceOptions){
-        super(`http://${context.account}.vtexcommercestable.com.br`, context,{...options,headers:{
-            ...options?.headers,
-            ...(context.authToken ? {VtexIdclientAutCookie: context.authToken} : null),
-            'Content-Type':'application/json',
-        }})        
+export default class WalletManager extends ExternalClient {
+    constructor(context: IOContext, options?: InstanceOptions) {
+        super(`http://${context.account}.vtexcommercestable.com.br`, context, {
+            ...options, headers: {
+                ...options?.headers,
+                ...(context.authToken ? { VtexIdclientAutCookie: context.authToken } : null),
+                'Content-Type': 'application/json',
+            }
+        })
     }
 
-public addCredit = (orderId:string) => {
+    public addCredit = (orderId: string) => {
 
- (async () => {
-    let ret = await this.http.get(`/api/oms/pvt/orders/${orderId}`)
-    
-    console.log('Order Payments  ----->',ret.paymentData.transactions[0].payments)
-    
- })()
-}
+        (async () => {
 
-public getWallet = (filter:string, perPage: number,pageNumber:number) => {
+            let dataEntityName = 'WD'
 
-    const startIndex = (pageNumber - 1) * perPage
-    const endIndex = startIndex + perPage
-    
-    return this.http.get(`api/dataentities/TT/search?_fields=_all${filter ? `&${filter}`:''}`,{
-        headers:{'REST-Range':`resources=${startIndex}-${endIndex}`}
-    })
-    
-    }  
+            let { clientProfileData: { userProfileId } , paymentData : { transactions}, shippingData :{ logisticsInfo }  } = await this.http.get(`/api/oms/pvt/orders/${orderId}`)
+
+
+              let  valorPago = (parseInt(transactions[0].payments[0].value))
+              let valorFrete = parseInt(logisticsInfo[0].price);
+
+             let aquiredPoints =  (valorPago  - valorFrete)/100;
+     
+             aquiredPoints = Math.floor(aquiredPoints) 
+
+             let clientWallet = (await this.http.get(`api/dataentities/${dataEntityName}/search?_fields=_all${`&_where=userId=${userProfileId}`}`))[0]
+
+             if (clientWallet){
+
+                 let { id: walletId , balance : currentBalance } = clientWallet
+                 let newBalance = currentBalance + aquiredPoints
+                 this.http.patch(`api/dataentities/${dataEntityName}/documents/${walletId}`, { balance: newBalance })
+             } else {
+
+                 this.http.post(`api/dataentities/${dataEntityName}/documents/`, { userId: userProfileId, balance: aquiredPoints })
+
+             }          
+
+
+        })()
+    }
+
+    public getWallet = (filter: string, perPage: number, pageNumber: number) => {
+
+        const startIndex = (pageNumber - 1) * perPage
+        const endIndex = startIndex + perPage
+
+        return this.http.get(`api/dataentities/TT/search?_fields=_all${filter ? `&${filter}` : ''}`, {
+            headers: { 'REST-Range': `resources=${startIndex}-${endIndex}` }
+        })
+
+    }
 
 }
