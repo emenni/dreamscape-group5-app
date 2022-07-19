@@ -13,7 +13,7 @@ export default class WalletManager extends ExternalClient {
 
     public addCredit = (orderId: string) => {
 
-        (async () => {
+        async () => {
 
             let dataEntityName = 'WD'
 
@@ -41,17 +41,15 @@ export default class WalletManager extends ExternalClient {
              }          
 
 
-        })()
+        }
     }
 
-    public getWallet = (filter: string, perPage: number, pageNumber: number) => {
+    public getWallet = (userId:string) => {
 
-        const startIndex = (pageNumber - 1) * perPage
-        const endIndex = startIndex + perPage
+        let dataEntityName = 'WD'
 
-        return this.http.get(`api/dataentities/TT/search?_fields=_all${filter ? `&${filter}` : ''}`, {
-            headers: { 'REST-Range': `resources=${startIndex}-${endIndex}` }
-        })
+        return this.http.get(`api/dataentities/${dataEntityName}/search?_fields=_all${`&_where=userId=${userId}`}`)
+
 
     }
 
