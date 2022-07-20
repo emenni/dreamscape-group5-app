@@ -20,6 +20,9 @@ function GetSessionData() {
   const { data } = useQuery(hardcodedwallet)
   let balance = data?.queryClientWallet[0].balance
   
+  console.log(userId)
+  console.log(balance)
+
   return <> {`${balance}`} </>
 }
 
