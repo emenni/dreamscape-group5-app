@@ -23,7 +23,7 @@ function GetSessionData() {
   console.log(userId)
   console.log(balance)
 
-  return <> 'TESTE' </>
+  return <>Session is ready</>
 }
 
 export default GetSessionData
