@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { useFullSession } from 'vtex.session-client'
 import { useQuery } from 'react-apollo'
-import hardcodedwallet from './graphql/hardcodedwallet.gql'
+import queryClientWallet from './graphql/getWallet.gql'
 
-function GetSessionData() {
-  const { loading, data : sessionData, error } = useFullSession()
+
+const GetSessionData: FC = () => {
+  const { loading, data: sessionData, error } = useFullSession()
 
   if (loading) {
     return <>Session is loading</>
@@ -14,16 +15,31 @@ function GetSessionData() {
     return <>Session has errors</>
   }
 
-   let userId =  sessionData?.session.namespaces.profile.id.value 
-   console.log(userId)
-  
-  const { data } = useQuery(hardcodedwallet)
-  let balance = data?.queryClientWallet[0].balance
-  
-  console.log(userId)
-  console.log(balance)
+  const handleToggle = () => {
+   return  useQuery(queryClientWallet);
+  }
 
-  return <>Session is ready</>
+  try { console.log(handleToggle()) } catch (e) {
+    console.log(e)
+  }
+  let userId = sessionData?.session.namespaces.profile.id.value
+
+
+
+  //const { data: walletdata } =  useQuery(queryClientWallet)
+  //let balance = walletdata?.queryClientWallet[0].balance
+  //let balance = 25
+
+  console.log(userId)
+  //console.log(walletdata)
+  //console.log(balance)
+
+  //console.log(useQuery(hardcodedwallet))
+
+
+  //return <>${balance}</>
+  return <>Ready</>
 }
+
 
 export default GetSessionData
