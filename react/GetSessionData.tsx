@@ -14,7 +14,9 @@ function GetSessionData() {
     return <>Session has errors</>
   }
 
-  { userId: sessionData?.session.namespaces.profile.id.value }
+   let userId =  sessionData?.session.namespaces.profile.id.value 
+   console.log(userId)
+  
   const { data } = useQuery(hardcodedwallet)
   let balance = data?.queryClientWallet[0].balance
   
