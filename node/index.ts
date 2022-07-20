@@ -1,7 +1,8 @@
 import {  LRUCache,  Service,  ServiceContext,  EventContext,  ParamsContext,  RecorderState,  method} from '@vtex/api'
 import { Clients } from './clients'
 import { createWalletRecords } from './event/orderCreated'
-import { clientWallet } from './handlers/wallet'
+import { clientWallet } from './middlewares/wallet'
+import {  queryClientWallet } from './resolvers/walllet'
 
 // Create a LRU memory cache for the Status client.
 // The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
@@ -34,7 +35,8 @@ export default new Service<Clients,  State, ParamsContext>({
   graphql: {
     resolvers: {
       Query: {
-        helloworld: () => `Service number: ${Math.random()}`,
+        queryClientWallet,
+        helloworld: () => {`Service number: ${Math.random()}`},
       },
     },
   },

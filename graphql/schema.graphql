@@ -1,3 +1,23 @@
+type Wallet{
+    balance: String,
+    userId: String,
+    id: String,
+    accountId: String,
+    accountName: String,
+    dataEntityId: String,
+    createdBy: String,
+    createdIn: String,
+    updatedBy: String,
+    updatedIn: String,
+    lastInteractionBy: String,
+    lastInteractionIn: String,
+    followers: String,
+    tags: String,
+    auto_filte: String
+}
+
+
 type Query {
-    helloworld: String
+    helloworld: String,
+    queryClientWallet(userId: String): [Wallet]
 }

@@ -1,0 +1,170 @@
+// store/blocks/product.jsonc
+{
+  "store.product": {
+    "children": [
+      "breadcrumb",
+      "flex-layout.row#main",
+      "condition-layout.product"
+    ]
+  },
+  "flex-layout.row#main": {
+    "props": {
+      "marginTop": 6
+    },
+    "children": [
+      "flex-layout.col#left",
+      "flex-layout.col#right"
+    ]
+  },
+  "flex-layout.col#left": {
+    "children": [
+      "product-images"
+    ]
+  },
+  "flex-layout.col#right": {
+    "props": {
+      "preventVerticalStretch": true,
+      "verticalAlign": "middle"
+    },
+    "children": [
+      "product-name",
+      "product-identifier.product",
+      "product-price",
+      "flex-layout.row#qty-sku",
+      "shipping-simulator",
+      "buy-button"
+    ]
+  },
+  "flex-layout.row#qty-sku": {
+    "children": [
+      "sku-selector",
+      "product-quantity"
+    ]
+  },
+  "product-price": {
+    "props": {
+      "showSavings": true,
+      "showListPrice": true
+    }
+  },
+  "condition-layout.product": {
+    "children": [
+      "condition.product#retro-mixer"
+    ]
+  },
+  "condition.product#retro-mixer": {
+    "props": {
+      "conditions": [
+        {
+          "subject": "productId",
+          "verb": "is",
+          "object": "2"
+        }
+      ]
+    },
+    "children": [
+      "tab-layout#1"
+    ]
+  },
+  "tab-layout#1": {
+    "children": [
+      "tab-list#1",
+      "tab-content#1"
+    ]
+  },
+  "tab-list#1": {
+    "children": [
+      "tab-list.item#p1",
+      "tab-list.item#p2"
+    ]
+  },
+  "tab-content#1": {
+    "children": [
+      "tab-content.item#p1",
+      "tab-content.item#p2"
+    ]
+  },
+  "tab-list.item#p1": {
+    "props": {
+      "tabId": "cozinha1",
+      "label": "Fotos conceituais de itens de cozinha.",
+      "defaultActiveTab": true
+    }
+  },
+  "tab-list.item#p2": {
+    "props": {
+      "tabId": "cozinha2",
+      "label": "Mais fotos conceituais de itens de cozinha."
+    }
+  },
+  "tab-content.item#p1": {
+    "children": [
+      "slider-layout#1"
+    ],
+    "props": {
+      "tabId": "cozinha1"
+    }
+  },
+  "tab-content.item#p2": {
+    "children": [
+      "slider-layout#2"
+    ],
+    "props": {
+      "tabId": "cozinha2"
+    }
+  },
+  "image#cozinha1": {
+    "props": {
+      "src": "https://user-images.githubusercontent.com/43679629/92658168-81041500-f2cc-11ea-9ab0-b93e53f1c00e.jpg",
+      "maxWidth": "15%"
+    }
+  },
+  "image#cozinha11": {
+    "props": {
+      "src": "https://user-images.githubusercontent.com/43679629/92658169-819cab80-f2cc-11ea-9323-c8df874e1920.jpg",
+      "maxWidth": "15%"
+    }
+  },
+  "image#cozinha2": {
+    "props": {
+      "src": "https://user-images.githubusercontent.com/43679629/92658172-82354200-f2cc-11ea-92e5-f3aa3439a676.jpg",
+      "maxWidth": "15%"
+    }
+  },
+  "image#cozinha22": {
+    "props": {
+      "src": "https://user-images.githubusercontent.com/43679629/92658175-82354200-f2cc-11ea-967d-0e54579edb90.jpg",
+      "maxWidth": "15%"
+    }
+  },
+  "slider-layout#1": {
+    "children": [
+      "image#cozinha1",
+      "image#cozinha11"
+    ],
+    "props": {
+      "autoplay": {
+        "timeout": 7000,
+        "stopOnHover": true
+      },
+      "itemsPerPage": {
+        "desktop": 1
+      }
+    }
+  },
+  "slider-layout#2": {
+    "children": [
+      "image#cozinha2",
+      "image#cozinha22"
+    ],
+    "props": {
+      "autoplay": {
+        "timeout": 7000,
+        "stopOnHover": true
+      },
+      "itemsPerPage": {
+        "desktop": 1
+      }
+    }
+  }
+}
