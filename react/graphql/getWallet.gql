@@ -1,5 +1,5 @@
-query getWallet {
-  queryClientWallet(userId: "01864ade-2de1-4916-adf2-32ada24e9fc4") {
+query  ($iduser: String!){
+  queryClientWallet (userId:$iduser){
     id
     userId
     balance
