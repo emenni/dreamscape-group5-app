@@ -30,10 +30,12 @@
       "verticalAlign": "center",
       "preventHorizontalStretch": true,
       "preventVerticalStretch": true,
-      "fullWidth": true
+      "fullWidth": true,
+      "blockClass": "main-header"
     },
     "children": [
       "flex-layout.col#logo-desk",
+      "wallet",
       "flex-layout.col#spacer",
       "search-bar",
       "locale-switcher",
@@ -85,14 +87,12 @@
       "preventHorizontalStretch": true,
       "preserveLayoutOnMobile": true,
       "fullWidth": true
-    }
-  },
+  }
+},
   "drawer": {
     "children": [
       "login",
-      "search-bar",
-      "locale-switcher",
-      "minicart.v2"
+      "wallet"
     ]
   }
 }

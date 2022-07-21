@@ -1,11 +1,5 @@
 {
-  "countdown": {
-    "component": "Countdown"
-  },
-  "countdown.title": {
-    "component": "Title"
-  },
-  "get-session-data":{
-    "component":"GetSessionData"
+  "wallet": {
+    "component": "WalletPoints"
   }
 }

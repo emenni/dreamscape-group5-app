@@ -1,0 +1,89 @@
+{
+    "store.custom#endpoint": {
+        "blocks": [
+            "responsive-layout.desktop#endpoint",
+            "responsive-layout.mobile#endpoint"
+        ]
+    },
+    "responsive-layout.desktop#endpoint": {
+        "children": [
+            "flex-layout.row#endpoint"
+        ]
+    },
+    "flex-layout.row#endpoint": {
+        "children": [
+            "image#endpoint",
+            "flex-layout.col#text-endpoint"
+        ]
+    },
+    "flex-layout.col#text-endpoint": {
+        "children": [
+            "rich-text#endpoint-title",
+            "rich-text#endpoint-content"
+        ],
+        "props": {
+            "preventVerticalStretch": true
+        }
+    },
+    "rich-text#endpoint-title": {
+        "props": {
+            "text": "# Recompensa DreamScape",
+            "textPosition": "CENTER",
+            "textAlignment": "CENTER",
+            "blockClass": "title-endpoint"
+        }
+    },
+    "rich-text#endpoint-content": {
+        "props": {
+            "text": " #### **A cada 1 real em compra você receberá 1 moeda DreamCoins para utilizar em nossa loja nas compras futuras.**  \n ### 1 REAL = 1 DreamCoins",
+            "textPosition": "CENTER",
+            "textAlignment": "CENTER",
+            "blockClass": "text-endpoint"
+        }
+    },
+    "image#endpoint": {
+        "props": {
+            "src": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/1bb88b8d-ca92-4439-a7d9-c0976a069516___b7f075a6442124c9a2f2796c4816ffe8.png",
+            "maxHeight": "600px"
+        }
+    },
+    "responsive-layout.mobile#endpoint": {
+        "children": [
+            "flex-layout.row#endpoint-mobile"
+        ]
+    },
+    "flex-layout.row#endpoint-mobile": {
+        "children": [
+            "image#endpoint-mobile",
+            "flex-layout.col#text-endpoint-mobile"
+        ]
+    },
+    "flex-layout.col#text-endpoint-mobile": {
+        "children": [
+            "rich-text#endpoint-title-mobile",
+            "rich-text#endpoint-content-mobile"
+        ]
+    },
+    "rich-text#endpoint-title-mobile": {
+        "props": {
+            "text": "# Recompensa DreamScape",
+            "textPosition": "CENTER",
+            "textAlignment": "CENTER",
+            "blockClass": "title-endpoint-mobile"
+        }
+    },
+    "rich-text#endpoint-content-mobile": {
+        "props": {
+            "text": " #### **A cada 1 real em compra você receberá 1 moeda DreamCoins para utilizar em nossa loja nas compras futuras.**  \n ### 1 REAL = 1 DreamCoins",
+            "textPosition": "CENTER",
+            "textAlignment": "CENTER",
+            "blockClass": "text-endpoint-mobile"
+        }
+    },
+    "image#endpoint-mobile": {
+        "props": {
+            "src": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/091f6916-798a-493c-a9c1-68bdf7688bb6___5a10c32f77311f29ee07e389629890db.png",
+            "maxHeight": "400px"
+        }
+    }
+}

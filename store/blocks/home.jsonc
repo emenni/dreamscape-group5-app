@@ -1,18 +1,17 @@
+
+
 {
   "store.home": {
     "blocks": [
-      "get-session-data",
-      "countdown.title",
-      "countdown",    
-      "responsive-layout.desktop#titled",
-      "responsive-layout.mobile#titlem",
-      "info-card#button-right",
-      "info-card#button-left",
-      "slider-layout#home",
       "responsive-layout.desktop#desktop",
       "responsive-layout.mobile#mobile",
+      "responsive-layout.desktop#titled",
+      "responsive-layout.mobile#title",
+      "info-card#button-right",
+      "info-card#button-left",
       "rich-text#3",
-      "list-context.product-list"
+      "list-context.product-list",
+      "newsletter"
     ]
   },
   //desktop
@@ -20,188 +19,95 @@
     "props": {
       "text": " ### Confira mais produtos:",
       "textPosition": "CENTER",
-      "textAlignment": "CENTER"
+      "textAlignment": "CENTER",
+      "blockClass": "text-home2"
     }
   },
+  "responsive-layout.desktop#desktop": {
+    "children": [
+      "image#desktop"
+      
+    ]
+  },
+  "responsive-layout.mobile#mobile": {
+    "children": [
+      "image#mobile"
+      
+    ]
+  },
+  "image#desktop": {
+    "props": {
+      "src": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/923aab7b-457b-4a72-90f9-b4641f810fc2___ffe6b2b6cf146ec503007dc90e070d76.png",
+      "maxWidth": "100%",
+      "blockClass": "image-home"
+    }
+  },
+ 
+
+
+  "image#mobile": {
+    "props": {
+      "src":  "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/ad9409ae-5995-4106-b825-62542ae697c3___798e34ccd732a8dab41bd002a70b2106.png",
+      "maxWidth": "100%"
+    }
+  },
+
   "rich-text#titled": {
     "props": {
       "text": " # **LOJA DREAMSCAPE**  \n ### Os melhores produtos do metaverso no seu desktop.",
       "textPosition": "CENTER",
-      "textAlignment": "CENTER"
+      "textAlignment": "CENTER",
+      "blockClass": "text-home"
     }
   },
   //mobile
-  "rich-text#titlem": {
+  "rich-text#title": {
     "props": {
       "text": " # **LOJA DREAMSCAPE**  \n ### Os melhores produtos do metaverso também no celular!",
       "textPosition": "CENTER",
-      "textAlignment": "CENTER"
+      "textAlignment": "CENTER",
+      "blockClass": "text-home"
     }
   },
   "info-card#button-right": {
     "props": {
       "isFullModeStyle": false,
       "textPosition": "right",
-      "imageUrl": "https://cdn.pixabay.com/photo/2016/10/11/21/43/geometric-1732847_960_720.jpg",
-    "headline": "DreamScapers",
-      "subhead": "Produtos sob medida para os integrantes da melhor casa do HiringCoders.",
+      "imageUrl": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/ddd27119-5ed4-46b7-b16d-b6b95184e9a5___8cdd03b1b88fdbc086daeace8a4bd2ba.png",
+    "headline": "DreamCoins",
+      "subhead": "Uma recompensa exclusiva da nossa loja, clique em saiba mais e descubra como ganhar as suas. ",
       "callToActionMode": "button",
-      "callToActionText": "CONHEÇA",
-      "callToActionUrl": "/landing",
-      "textAlignment": "center",
-      "blockClass": "vintage"
+      "callToActionText": "Saiba mais",
+      "callToActionUrl": "/DreamCoins",
+      "textAlignment": "center"
     }
   },
   "info-card#button-left": {
     "props": {
       "isFullModeStyle": false,
       "textPosition": "left",
-      "imageUrl": "https://cdn.pixabay.com/photo/2015/12/15/03/56/macbook-1093641_960_720.jpg",
-      "headline": "Coleção Exclusiva",
-      "subhead": "Decore sua casa, compre eletronicos, roupas e até automoveis! temos tudo que você precisa.",
+      "imageUrl": "https://dreamscape.vtexassets.com/assets/vtex.file-manager-graphql/images/99040364-04a7-4eed-be97-393b55333a9e___b6103eca7cd270f6feeaef9b5abc2e5d.png",
+      "headline": "DreamScapers",
+      "subhead":"Produtos sob medida para os integrantes da melhor casa do HiringCoders." ,
       "callToActionMode": "link",
       "callToActionText": "Va para a coleção",
       "textAlignment": "center"
     }
   },
-  "responsive-layout.desktop#desktop": {
-    "children": [
-      "rich-text#desktop",
-      "image#desktop"
-    ]
-  },
-  "responsive-layout.mobile#mobile": {
-    "children": [
-      "rich-text#mobile",
-      "image#mobile"
-    ]
-  },
+
   "responsive-layout.desktop#titled": {
     "children": [
       "rich-text#titled"
     ]
   },
-  "responsive-layout.mobile#titlem": {
+  "responsive-layout.mobile#title": {
     "children": [
-      "rich-text#titlem"
+      "rich-text#title"
     ]
   },
-  "rich-text#desktop": {
-    "props": {
-      "text": "# Seu Café, Seu Combustivel. \n ### Nova coleção de cafeteiras.",
-      "textPosition": "CENTER",
-      "textAlignment": "CENTER"
-    }
-  },
-  "rich-text#mobile": {
-    "props": {
-      "text": "# Seu Café, Seu Combustivel. \n ### Nova coleção de cafeteiras.",
-      "textPosition": "CENTER",
-      "textAlignment": "CENTER"
-    }
-  },
-  "image#desktop": {
-    "props": {
-      "src": "https://appliancetheme.vteximg.com.br/arquivos/Responsive-Image-Desktop.jpg?q=1",
-      "maxWidth": "100%",
-      "link": {
-        "url": "/landing"
-      },
-      "alt": "Coffee Makers Collection"
-    }
-  },
-  "image#mobile": {
-    "props": {
-      "src": "https://appliancetheme.vteximg.com.br/arquivos/Responsive-Image-Mobile.jpg?q=1",
-      "maxWidth": "100%",
-      "link": {
-        "url": "/landing"
-      },
-      "alt": "Coffee Makers Collection"
-    }
-  },
-  "tab-layout": {
-    "children": [
-      "tab-list",
-      "tab-content"
-    ]
-  },
-  "tab-list": {
-    "children": [
-      "tab-list.item#1",
-      "tab-list.item#2"
-    ]
-  },
-  "tab-content": {
-    "children": [
-      "tab-content.item#1",
-      "tab-content.item#2"
-    ]
-  },
-  "tab-list.item#1": {
-    "props": {
-      "tabId": "majorAppliances",
-      "label": "Major Appliances",
-      "defaultActiveTab": true
-    }
-  },
-  "tab-list.item#2": {
-    "props": {
-      "tabId": "electronics",
-      "label": "Electronics"
-    }
-  },
-  "tab-content.item#1": {
-    "children": [
-      "rich-text#1"
-    ],
-    "props": {
-      "tabId": "majorAppliances"
-    }
-  },
-  "tab-content.item#2": {
-    "children": [
-      "rich-text#2"
-    ],
-    "props": {
-      "tabId": "electronics"
-    }
-  },
-  "rich-text#1": {
-    "props": {
-      "text": "Área do conteúdo da tab-list.item com  tabId = majorAppliances",
-      "textPosition": "CENTER",
-      "font": "t-heading-3"
-    }
-  },
-  "rich-text#2": {
-    "props": {
-      "text": "Área do conteúdo da tab-list.item com  tabId = electronics",
-      "textPosition": "CENTER",
-      "font": "t-heading-3"
-    }
-  },
-  "modal-trigger#first": {
-    "children": [
-      "rich-text#trigger",
-      "modal-layout#first"
-    ]
-  },
-  "rich-text#trigger": {
-    "props": {
-      "text": "CLICK ME"
-    }
-  },
-  "modal-layout#first": {
-    "children": [
-      "rich-text#hello"
-    ]
-  },
-  "rich-text#hello": {
-    "props": {
-      "text": "Hello"
-    }
-  },
+ 
+  
+  
   "list-context.product-list": {
     "blocks": [
       "product-summary.shelf"
@@ -214,8 +120,12 @@
     "children": [
       "modal-trigger#quickview",
       "product-summary-name",
-      "product-selling-price"
+      "product-rating-inline",
+      "product-summary-space",
+      "product-summary-price",
+      "product-summary-buy-button"
     ]
+    
   },
   "modal-trigger#quickview": {
     "children": [
@@ -231,30 +141,5 @@
       "product-summary-quantity",
       "add-to-cart-button"
     ]
-  },
-  "stack-layout#cta": {
-    "children": [
-      "image#cta",
-      "link#cta"
-    ]
-  },
-  "image#cta": {
-    "props": {
-      "blockClass": "cover",
-      "width": "100%",
-      "height": 400,
-      "src": "https://appliancetheme.vtexassets.com/assets/app/src/appliancecat___1b7592b49667c6a89203a0997e06bc87.jpg"
-    }
-  },
-  "link#cta": {
-    "props": {
-      "displayMode": "button",
-      "buttonProps": {
-        "variant": "primary",
-        "size": "large"
-      },
-      "href": "/washer",
-      "label": "Confira esses descontos malucos!"
-    }
   }
 }

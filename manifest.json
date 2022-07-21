@@ -5,6 +5,7 @@
   "license": "UNLICENSED",
   "title": "Dreamscape Group 5 App",
   "description": "DreamScape Group 5 Solution App for Gama/Vtex Contest on Hiring Coders 3",
+  "defaultLocale": "pt-BR",
   "builders": {
     "react": "3.x",
     "admin": "0.x",
@@ -77,7 +78,8 @@
     "vtex.search-graphql": "0.x",
     "vtex.product-context": "0.x",
     "vtex.css-handles": "0.x",
-    "vtex.session-client": "1.x"
+    "vtex.session-client": "1.x",
+    "vtex.order-manager": "0.x"
   },
   "registries": [
     "smartcheckout"

@@ -1,58 +1,110 @@
 {
   "footer": {
-    "blocks": ["footer-layout.desktop", "footer-layout.mobile"]
+    "blocks": [
+      "footer-layout.desktop"
+    ]
   },
   "footer-layout.desktop": {
     "children": [
+      "flex-layout.row#footer-1-desktop",
+      "flex-layout.row#footer-2-desktop",
+      "flex-layout.row#footer-3-desktop",
       "flex-layout.row#footer-desktop"
     ]
   },
-  "footer-layout.mobile": {
+  "flex-layout.row#footer-1-desktop": {
     "children": [
-      "flex-layout.row#footer-mobile"
-    ]
+      "footer-spacer",
+      "social-networks"
+    ],
+    "props": {
+      "blockClass": "menu-row",
+      "paddingTop": 6,
+      "paddingBottom": 3
+    }
+  },
+  "social-networks": {
+    "props": {
+      "socialNetworks": [
+        {
+          "name": "Facebook",
+          "url": "https://www.facebook.com/vtexonline/"
+        },
+        {
+          "name": "Instagram",
+          "url": "https://www.instagram.com/vtextruecloud/"
+        },
+        {
+          "name": "Twitter",
+          "url": "https://twitter.com/vtexonline"
+        },
+        {
+          "name": "Youtube",
+          "url": "https://www.youtube.com/user/VTEXTV"
+        }
+      ]
+    }
+  },
+  "flex-layout.row#footer-2-desktop": {
+    "children": [
+      "accepted-payment-methods"
+    ],
+    "props": {
+      "blockClass": "payment-methods"
+    }
+  },
+  "accepted-payment-methods": {
+    "props": {
+      "paymentMethods": [
+        "MasterCard",
+        "Visa",
+        "Diners Club"
+      ]
+    }
+  },
+  "flex-layout.row#footer-3-desktop": {
+    "children": [
+      "rich-text#footer"
+    ],
+    "props": {
+      "blockClass": "credits"
+    }
+  },
+  "rich-text#footer": {
+    "props": {
+      "text": "Equipe: DreamScape Grupo 5",
+      "blockClass": "footer"
+    }
+  },
+  "rich-text#footer-mobile": {
+    "props": {
+      "text": "Equipe: DreamScape Grupo 5",
+      "blockClass": "footer"
+    }
   },
   "flex-layout.row#footer-desktop": {
     "children": [
-      "social-networks",
-      "accepted-payment-methods",
       "image#hiring",
       "image#vtex",
       "image#gama"
     ]
   },
-  "flex-layout.row#footer-mobile": {
-    "children": [
-      "social-networks",
-      "accepted-payment-methods"
-    ]
-  },
   "image#hiring": {
     "props": {
       "src": "https://yt3.ggpht.com/7wLVndBMnRPH8zDHjTnK5yvoVaPxQOg8kOtPzou0XeNKOCvG7h6qKyjEhrvE0BylFMQrR_DqBYU=s900-c-k-c0x00ffffff-no-rj",
-      "maxWidth": "10%"
-    }},
+      "blockClass":"logo-footer"
+    }
+  },
   "image#vtex": {
     "props": {
       "src": "https://media-exp1.licdn.com/dms/image/C4E0BAQGuwANNml02DA/company-logo_200_200/0/1626116372683?e=2147483647&v=beta&t=GUc1RJYmLeMFHwhSYHC_IynTKlA1o-Xe0EQhQMXWJA0",
-      "maxWidth": "10%"
-    }},
+      "blockClass":"logo-footer2"
+    }
+  },
   "image#gama": {
     "props": {
       "src": "https://yt3.ggpht.com/ytc/AKedOLRBHtuUQjZBjJsp7QzSu8rlKZIIEtTQNvDUfHYV=s900-c-k-c0x00ffffff-no-rj",
-      "maxWidth": "10%"
-    }},
-  "social-networks": {
-    "props": {
-      "socialNetworks": [
-        { "url": "https://facebook.com/foo", "name": "Facebook" },
-        { "url": "https://twitter.com/foo", "name": "Twitter" }
-      ]
-    }
-  },
-  "accepted-payment-methods": {
-    "props": {
-      "paymentMethods": ["mastercard", "visa", "diners club"]
+      "blockClass":"logo-footer3"
     }
   }
 }
