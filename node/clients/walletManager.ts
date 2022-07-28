@@ -19,9 +19,6 @@ export default class WalletManager extends ExternalClient {
 
             let { clientProfileData: { userProfileId } , paymentData : { transactions}, shippingData :{ logisticsInfo }  } = await this.http.get(`/api/oms/pvt/orders/${orderId}`)
 
-            console.log("ENTROU middleware",userProfileId)
-
-
               let  valorPago = (parseInt(transactions[0].payments[0].value))
               let valorFrete = parseInt(logisticsInfo[0].price);
 
