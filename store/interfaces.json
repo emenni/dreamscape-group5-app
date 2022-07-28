@@ -1,5 +1,5 @@
 {
   "wallet": {
-    "component": "WalletPoints"
+    "component": "GetSessionData"
   }
 }
